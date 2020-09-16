@@ -1,9 +1,3 @@
-/*
-Ismat Syah Imran
-Mr. Tully
-Period 4
- */
-
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
