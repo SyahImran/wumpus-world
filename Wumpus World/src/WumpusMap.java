@@ -1,9 +1,3 @@
-/*
-Ismat Syah Imran
-Mr. Tully
-Period 4
- */
-
 import java.util.Random;
 
 public class WumpusMap {
@@ -17,9 +11,6 @@ public class WumpusMap {
     private int ladderR;
     private int wumpusR;
     private int wumpusC;
-    private int goldR;
-    private int goldC;
-    private boolean[][] grid2 = new boolean[NUM_ROWS][NUM_COLUMNS];
 
     public WumpusMap() {
         createMap();
@@ -31,7 +22,6 @@ public class WumpusMap {
         for(int r = 0; r < grid.length; r++) {
             for(int c = 0; c < grid[0].length; c++) {
                 grid[r][c] = new WumpusSquare();
-                grid2[r][c] = false;
             }
         }
         //creates random row and column
@@ -44,8 +34,6 @@ public class WumpusMap {
             c = random.nextInt(grid[0].length);
         }while(grid[r][c].getPit() || grid[r][c].getLadder());
         grid[r][c].setGold(true);
-        goldR = r;
-        goldC = c;
         //sets wumpus and stenches
         do {
             r = random.nextInt(grid.length);
@@ -101,27 +89,6 @@ public class WumpusMap {
     public int getLadderC() {
         return ladderC;
     }
-
-    /*
-    public boolean isSolvable(int r, int c) {
-        grid2[r][c] = true;
-        boolean one = false;
-        boolean two = false;
-        boolean three = false;
-        boolean four = false;
-        if(grid[r][c].getGold())
-            return true;
-        if(r > 0 && !grid[r-1][c].getPit() && !grid2[r][c])
-            one = isSolvable(r-1,c);
-        if(r < grid.length-1 && !grid[r+1][c].getPit() && !grid2[r][c])
-            two = isSolvable(r+1,c);
-        if(c > 0 && !grid[r][c-1].getPit() && !grid2[r][c])
-            three = isSolvable(r,c-1);
-        if(c < grid[0].length-1 && !grid[r][c+1].getPit() && !grid2[r][c])
-            four = isSolvable(r,c+1);
-        return (one || two || three || four);
-    }
-     */
 
     public int getLadderR() {
         return ladderR;
